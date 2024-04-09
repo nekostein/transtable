@@ -1,0 +1,94 @@
+\documentclass[11pt,a4paper]{report}
+\input{_dist/libvi/latex/ns-report.tex}
+\usepackage{nicefrac}
+
+\providecommand{\colorhref}[2]{\textcolor{black!20!blue!80!green}{\href{#1}{#2}}}
+\hypersetup{pdftitle={TransTable Developer Documentation}}
+
+
+
+
+
+\begin{document}
+\nsreportcover{\today}{Neruthes}{TransTable\\Developer Documentation}{Nekostein HQ}{For Public Release}
+\sffamily
+
+\tableofcontents\clearpage
+
+
+
+
+
+\chapter{Introduction}
+
+\section{Using CSV for Internationalization}
+In game development, we often use CSV to do internationalization (i18n).
+For example, Godot official documentation
+\footnote{Section ``Importing translations'', Godot Documentation 4.2.
+(\href{https://docs.godotengine.org/en/stable/tutorials/assets\_pipeline/importing\_translations.html}{URL})}
+has explained how CSV-based i18n works.
+
+While Godot official documentation suggests that GNU gettext is a more powerful solution,
+we at Nekostein often find CSV good enough.
+Not only because it is simple and straightforward when editing,
+but also because we use a simple shell script to extract
+item descriptions for subsequent archiving workflows (PDF, wiki, etc) ---
+if we were to use GNU gettext, this part of work would have been more complicated.
+
+\section{Prioritization}
+As a game developer, you may wonder in which regions your game will sell well.
+If you were to make accurate speculations, your marketing strategy would have been easier,
+and you would have been able to prioritize affording i18n for certain languages.
+
+As of year 2024, ChatGPT and similar stuff are good at
+providing translations in batch with acceptable quality.
+Just tell ChatGPT to append another column for Français in the CSV
+when you already have English and Deutsch for cross-reference.
+We at Nekostein are bilingual in English and Mandarin
+and we find this workflow functioning all right,
+although we are not experts in Deutsch, Français, or Nihongo.
+
+\section{Community Suggestions}
+The quality of machine translations can be suspicious,
+but we believe that they are helpful in starting a dialogue with players who use the language.
+It is more convenient to propose a minor modification on the existing translation
+than to start writing some translation.
+
+
+
+
+
+
+\chapter{Workflow}
+
+\section{Overview}
+The workflow should be like this:
+\begin{compactitem}
+    \item Clone this repo.
+    \item Configure in \texttt{config.json}.
+    \item Put CSV files into \texttt{/files} (using shell scripts).
+    \item Run build script \texttt{./make.sh www}.
+    \item Get a static website in \texttt{/www}.
+    \item Publish the static website.
+    \item Ask a volunteer to edit in the webpage.
+    \item The volunteer gives back a diff (known as ModifRequest).
+    \item Paste some suggestions into the webpage.
+    \item Get exported text file.
+    \item Copy and paste to the local editor.
+\end{compactitem}
+%  manage multiple CSV files within
+
+
+
+
+
+
+\chapter{Data Structure}
+TODO
+
+
+
+
+
+
+\end{document}
