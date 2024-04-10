@@ -190,13 +190,23 @@ app.dom.flushModifList = function () {
 
 app.dom.exportFullCsv = function () {
     let output_text = '';
+    let input_changes = document.querySelector('#js-changeList').value.trim().split('\n');
     output_text += 'keys' + app.config.delimiter + app.RAM.csv_data.metadata.languages.join(app.config.delimiter) + '\n\n';
     output_text += app.RAM.csv_data.matrix.map(function (row, row_index) {
         const key = row[0];
         return row[0] + app.config.delimiter + row.slice(1).map(function (col, col_id) {
             const lang = app.RAM.csv_data.metadata.languages[col_id];
             const cell_id = lang + ':' + key;
-            return '"' + document.querySelector(`.transtable-edit-cell[data-identifier="${cell_id}"]`).value.trim() + '"';
+            const matched_arr = input_changes.filter(line => line.startsWith(cell_id + ':'));
+            let real_value = col;
+            if (matched_arr.length > 0) {
+                console.log(`This line is changed: ${matched_arr}`)
+                real_value = matched_arr[0].replace(cell_id + ':', '');
+                const input_node = document.querySelector(`.transtable-edit-cell[data-identifier="${cell_id}"]`);
+                input_node.value = real_value;
+                input_node.setAttribute('data-dirty', real_value === input_node.getAttribute('data-original-text') ? 'false' : 'true' );
+            };
+            return '"' + real_value + '"';
         }).join(app.config.delimiter);
     }).join('\n');
     console.log('output_text = ');
