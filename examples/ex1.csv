@@ -1,7 +1,6 @@
-keys;en;zh
+keys;en;zh;ja;de;fr
 
-title.main;"TransTable Example File";"TransTable 范例文件"
-title.sub;"An example for experimenting";"一个用于实验的范例"
-
-meta.author;"Author: Neruthes";"作者：Neruthes"
-meta.copyright;"Copyright © 2023-2024 Nekostein. Published with GNU GPL 2.0.";"版权所有 © 2023-2024 Nekostein。使用 GNU GPL 2.0 发行。"
+title.main;"TransTable Example File";"TransTable 范例文件";"トランステーブルの例ファイル";"TransTable Beispieldatei";"Fichier d'exemple TransTable"
+title.sub;"An example for experimenting";"一个用于实验的范例";"実験用の例";"Ein Beispiel zum Experimentieren";"Un exemple pour expérimenter"
+meta.author;"Author: Neruthes";"作者：Neruthes";"著者：Neruthes";"Autor: Neruthes";"Auteur : Neruthes"
+meta.copyright;"Copyright © 2023-2024 Nekostein. Published with GNU GPL 2.0.";"版权所有 © 2023-2024 Nekostein。使用 GNU GPL 2.0 发行。";"著作権 © 2023-2024 Nekostein。GNU GPL 2.0 で公開。";"Copyright © 2023-2024 Nekostein. Veröffentlicht unter GNU GPL 2.0.";"Droits d'auteur © 2023-2024 Nekostein. Publié avec GNU GPL 2.0."

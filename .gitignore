@@ -1,4 +1,7 @@
 _dist
 .tmp
+
 www
 files
+config.json
+deploy.sh

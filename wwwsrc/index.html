@@ -4,11 +4,102 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>TransTable</title>
     <script src="js/transtable.js" defer></script>
+    <link rel="stylesheet" href="css/transtable.css">
+    <script>
+        window.addEventListener('load', function () { app.boot(); });
+    </script>
+    <style>
+        .grand-wrap {
+            padding: 15px;
+        }
+    </style>
 </head>
 
 <body>
+    <div class="grand-wrap">
+        <div class="grand-header">
+            <style>
+                .grand-header {
+                    padding: 0 0 40px;
+                }
+            </style>
+            <header>
+                <h1>TransTable</h1>
+                <aside id="js-subtitle">Online i18n editor</aside>
+            </header>
+        </div>
+        <div class="grand-content">
+            <div id="js-appMain">
+                <div id="app-mainTable"></div>
+            </div>
+        </div>
+        <div class="grand-footer">
+            <style>
+                .grand-footer {
+                    padding: 40px 0px 400px;
+                    font-size: 13px;
+                }
+            </style>
+            <footer>
+                <p>Copyright &copy; 2024 Nekostein, an unincorporated game development team consisting of Neruthes and MIAO_OAIM.</p>
+                <p>This webpage is a portable free software published with GNU GPL 2.0.</p>
+                <p>The CSV file and the contents of the table cells may be copyrighted by the original author.</p>
+                <p>
+                    <a href="https://github.com/nekostein/transtable">Source Code</a> /
+                    <a href="https://nekostein.com">About Nekostein</a> /
+                    <a href="https://nekostein.com/misc/donate">Donation</a>
+
+                </p>
+            </footer>
+        </div>
+    </div>
+
+    <div id="app-fixedPanel">
+        <style>
+            #app-fixedPanel {
+                background: #FFF;
+                position: fixed;
+                width: 100vw;
+                height: 300px;
+                left: 0px;
+                bottom: 0px;
+                box-shadow: rgba(0, 0, 0, 0.11) 0 0 25px 1px;
+            }
+
+            #js-changeList {
+                resize: none;
+                width: 100%;
+                height: calc(300px - 34px - 100px);
+            }
+
+            #js-exportedCsv {
+                resize: none;
+                width: 300px;
+                height: 24px;
+                float: left;
+            }
+
+            #js-btnExportCsv {
+                height: 24px;
+                float: left;
+            }
+        </style>
+        <div style="padding: 15px;">
+            <div>
+                <aside>To propose changes, submit the following lines of text to the author.</aside>
+            </div>
+            <div>
+                <textarea id="js-changeList"></textarea>
+            </div>
+            <div>
+                <button id="js-btnExportCsv" onclick="app.dom.exportFullCsv();">Export Full CSV</button>
+                <textarea id="js-exportedCsv">Exported CSV will show here</textarea>
+                <div style="clear: both;"></div>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>
